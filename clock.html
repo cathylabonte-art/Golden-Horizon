@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body {
+            background-color: #1c1c1c;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .clock {
+            text-align: center;
+        }
+        .time-zone {
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+<div class="clock">
+    <div class="time-zone" id="new-york"></div>
+    <div class="time-zone" id="london"></div>
+    <div class="time-zone" id="tokyo"></div>
+    <div class="time-zone" id="dubai"></div>
+    <div class="time-zone" id="bangkok"></div>
+    <div class="time-zone" id="bali"></div>
+</div>
+<script>
+    function updateTime() {
+        const timeZones = {
+            "New York": -4,
+            "London": 1,
+            "Tokyo": 9,
+            "Dubai": 4,
+            "Bangkok": 7,
+            "Bali": 8
+        };
+        const now = new Date();
+        Object.keys(timeZones).forEach(zone => {
+            const localTime = new Date(now.getTime() + timeZones[zone] * 3600 * 1000);
+            document.getElementById(zone.toLowerCase().replace(/ /g, '-') ).innerHTML = `${zone}: ${localTime.toUTCString().slice(0, 25)}`;
+        });
+    }
+    setInterval(updateTime, 1000);
+    updateTime(); // initial call
+</script>
+</body>
+</html>
