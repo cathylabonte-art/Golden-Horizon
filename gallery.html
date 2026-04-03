@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Horizon Photo Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Golden Horizon Photo Gallery</h1>
+    <div class="gallery">
+        <!-- Photos will be displayed here. Users can add their own photos. -->
+        <div class="gallery-item">
+            <img src="photo1.jpg" alt="Travel Photo 1">
+        </div>
+        <div class="gallery-item">
+            <img src="photo2.jpg" alt="Travel Photo 2">
+        </div>
+        <div class="gallery-item">
+            <img src="photo3.jpg" alt="Travel Photo 3">
+        </div>
+        <!-- Add or edit more photos as needed -->
+    </div>
+</body>
+</html>
